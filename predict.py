@@ -1,5 +1,9 @@
 """ This module generates notes for a midi file using the
     trained neural network """
+import os
+import tensorflow as tf
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
 import pickle
 import numpy
 from music21 import instrument, note, stream, chord
