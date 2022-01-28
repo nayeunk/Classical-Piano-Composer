@@ -31,10 +31,12 @@ def get_notes():
     notes = []
 
     for file in glob.glob("midi_songs/*.mid"):
-        midi = converter.parse(file)
-
-        print("Parsing %s" % file)
-
+        try:
+            midi = converter.parse(str(file))
+            print("Parsing %s" % file)
+        except:
+            print('failed to find time signature for file %s' % file)
+      
         notes_to_parse = None
 
         try: # file has instrument parts
